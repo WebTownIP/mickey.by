@@ -1,0 +1,24 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Сброс пароля
+.container
+  .row
+    form.col.l8.m8.s10.offset-l2.offset-m2.offset-s1(
+      name="resetForm"
+      novalidate
+    )
+      .row
+        .input-field.col.s12
+          input#email(
+            placeholder="Email"
+            ng-model="userReset.email"
+            type="text"
+            name="email"
+            required
+          )
+          label(for="email") Email
+      .row.btn-group
+        button.btn.waves-effect.waves-light.right.pink.lighten-2(
+          ng-click="reset(userReset)"
+          ng-disabled="resetForm.$invalid"
+        ) Сбросить

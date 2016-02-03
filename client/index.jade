@@ -1,0 +1,89 @@
+doctype html
+html
+  head
+    title Агентство Аэродизайна "Микки"
+
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    base(href="/")
+    
+    link(href="static/client/assets/libs/Materialize/dist/css/materialize.min.css", rel="stylesheet", media="screen,projection")
+    link(href="static/client/assets/libs/fontawesome/css/font-awesome.min.css", rel="stylesheet")
+    link(href="static/client/assets/libs/pickadate/lib/themes/default.css", rel="stylesheet")
+    link(href="static/client/assets/libs/angularjs-slider/dist/rzslider.min.css", rel="stylesheet")
+    link(href="static/client/assets/libs/animate.css/animate.min.css", rel="stylesheet")
+    link(href="static/client/assets/css/index.min.css", rel="stylesheet")
+  | {% verbatim %}
+  body(ng-app="mickey")
+    .main
+      include ./views/separator.jade
+      header
+        .row
+          .col.l2.m2.s4
+            a.logo(ui-sref="main")
+              img.responsive-img(
+                src="http://s1.iconbird.com/ico/2013/12/535/w512h5121387208028mickeymouseicon.png"
+              alt="Логотип"
+              )
+      div.divider
+      nav.cyan.lighten-1
+        .nav-wrapper
+          a.button-collapse(href="#", data-activates="mobile-topmenu", style="margin-left: 10px")
+            i.fa.fa-bars.grey-text.text-darken-3
+          ul.left.hide-on-med-and-down
+            li
+              a(ui-sref="catalog.list") Каталог
+            li
+              a Размеры шаров
+            li
+              a Доставка
+          ul.side-nav#mobile-topmenu
+            li
+              a.grey-text(ui-sref="catalog.list") Каталог
+            li
+              a Link 1
+            li
+              a Link 2
+            li
+              a Link 3
+      .clearfix
+      main(ui-view)
+    footer.grey.lighten-2
+      .row
+    
+    include ./views/spinner.jade
+
+    .fixed-action-btn.cart(ng-if="user.isLogged",ng-cloak)
+      a.btn-floating.btn-large.pink.lighten-1(ui-sref="cart")
+        i.fa.fa-shopping-basket
+    .fixed-action-btn.profile(ng-if="user.isLogged", ng-cloak)
+      a.btn-floating.btn-large.green.lighten-1(ui-sref="profile({id: user.info.id})")
+        i.fa.fa-user
+    .fixed-action-btn.sign-out(ng-if="user.isLogged", ng-cloak)
+      a.btn-floating.btn-large.cyan.lighten-1(ng-click="logout()")
+        i.fa.fa-sign-out
+
+
+    .fixed-action-btn.registration(ng-if="!user.isLogged", ng-cloak)
+      a.btn-floating.btn-large.green.lighten-1(ui-sref="registration")
+        i.fa.fa-user-plus
+    .fixed-action-btn.sign-in(ng-if="!user.isLogged", ng-cloak)
+      a.btn-floating.btn-large.cyan.lighten-1(ui-sref="login")
+        i.fa.fa-sign-in
+
+    script(src="static/client/assets/libs/jquery/dist/jquery.min.js")
+    script(src="static/client/assets/libs/masonry/dist/masonry.pkgd.min.js")
+    script(src="static/client/assets/libs/wow/dist/wow.min.js")
+    script(src="static/client/assets/libs/angular/angular.js")
+    script(src="static/client/assets/libs/angular-resource/angular-resource.min.js")
+    script(src="static/client/assets/libs/Materialize/dist/js/materialize.min.js")
+    script(src="static/client/assets/libs/angular-ui-validate/dist/validate.js")
+    script(src="static/client/assets/libs/angular-ui-router/release/angular-ui-router.min.js")
+    script(src="static/client/assets/libs/ngInfiniteScroll/build/ng-infinite-scroll.min.js")
+    script(src="static/client/assets/libs/pickadate/lib/picker.date.js")
+    script(src="static/client/assets/libs/pickadate/lib/picker.time.js")
+    script(src="static/client/assets/libs/angularjs-slider/dist/rzslider.min.js")
+    script(src="static/client/assets/libs/underscore/underscore-min.js")
+    script(src="static/client/app/index.js")      
+  | {% endverbatim %}

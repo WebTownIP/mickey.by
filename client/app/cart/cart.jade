@@ -1,0 +1,69 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Корзина
+.row.cart
+  table.bordered.highlight.grey-text.col.s10.offset-s1
+    thead
+      th(data-field="order.product.name", colspan=4) Название
+      th.right-align(data-field="order.count") Количество
+      th.right-align(data-field="order.product.price") Цена, руб.
+      th
+    tbody
+      tr(ng-repeat="order in orders")
+        td(colspan=4)
+          a(ui-sref="catalog.details({id: product.id})") {{order.product.name}}
+        td
+          input.right-align(
+            type="number",
+            ng-model="order.count"
+            ng-change="updateOrderCount(order)"
+            min="1"
+          )
+        td.right-align {{order.count * (order.product.price - order.product.discount)}}
+        td.center-align
+          i.fa.fa-times.cursor-pointer.delete(ng-click="deleteOrder(order)")
+      tr(ng-if="orders.length")
+        td(colspan=4)
+        td
+        td.right-align {{getTotalPrice()}}
+        td
+.row
+  form.col.l6.m8.s10.offset-l3.offset-m2.offset-s1(
+    name="forms.orderInfoForm"
+    novalidate
+    ng-show="orders.length"
+  )
+    .row
+      .input-field.col.s12
+        input.datepicker#date(
+          ng-model="orderInfo.date"
+          placeholder="Дата"
+          required
+          type="text"
+        )
+        label(for="date") Дата
+    .row
+      .input-field.col.s12
+        input.timepicker#time(
+          ng-model="orderInfo.time"
+          placeholder="Время"
+          required
+          type="text"
+        )
+        label(for="time") Время
+    .row
+      .input-field.col.s12
+        input#address(
+          type="text"
+          name="address"
+          placeholder="Адрес"
+          ng-model="orderInfo.address"
+          required
+        )
+        label(for="adress") Адрес
+.row.btn-group
+  .col.s10.offset-s1
+    button.right.btn.waves-effect.waves-light.pink.lighten-2(
+      ng-click="purchase(orderInfo)"
+      ng-disabled="!orders.length || forms.orderInfoForm.$invalid"
+    ) Заказать

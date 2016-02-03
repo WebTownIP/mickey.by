@@ -1,0 +1,67 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Регистрация
+.container
+  .row
+    form.col.l8.m8.s10.offset-l2.offset-m2.offset-s1(
+      name="registrationForm"
+      novalidate
+    )
+      .row
+        .input-field.col.l6.s12
+          input#email(
+            placeholder="Email"
+            ng-model="userReg.email"
+            type="text"
+            name="email"
+            required
+          )
+          label(for="email") Email
+        .input-field.col.l6.s12
+          input#phone(
+            placeholder="Телефон"
+            ng-model="userReg.phone_number"
+            type="tel"
+            name="phone"
+            required
+          )
+          label(for="phone") Телефон
+        .input-field.col.l6.s12
+          input#password(
+            placeholder="Пароль"
+            ng-model="userReg.password"
+            type="password"
+            name="password"
+            required
+          )
+          label(for="password") Пароль
+        .input-field.col.l6.s12
+          input#confirmPassword(
+            placeholder="Повторите Пароль"
+            ng-model="userReg.confirm_password"
+            type="password"
+            name="confirmPassword"
+            required
+          )
+          label(for="confirmPassword") Повторите Пароль
+        .input-field.col.l6.s12
+          input#firstName(
+            placeholder="Имя"
+            ng-model="userReg.first_name"
+            type="text"
+            name="firstName"
+          )
+          label(for="firstName") Имя
+        .input-field.col.l6.s12
+          input#secondName(
+            placeholder="Фамилия"
+            ng-model="userReg.second_name"
+            type="text"
+            name="secondName"
+          )
+          label(for="secondName") Фамилия
+      .row.btn-group
+        button.btn.waves-effect.waves-light.right.pink.lighten-2(
+          ng-click="registrate(userReg)"
+          ng-disabled="registrationForm.$invalid"
+        ) Зарегистрироваться

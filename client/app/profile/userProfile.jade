@@ -1,0 +1,84 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Профиль
+.row
+  .col.offset-s2
+    h5.pink-text.text-lighten-2 Информация
+.container
+  .row
+    form.col.l8.m8.s10.offset-l2.offset-m2.offset-s1(
+      name="profileForm"
+      novalidate
+    )
+      .row
+        .input-field.col.s12
+          input#firstName(
+            placeholder="Имя"
+            ng-model="userProfile.user.first_name"
+            type="text"
+            name="firstName"
+          )
+      .row
+        .input-field.col.s12
+          input#lastName(
+            placeholder="Фамилия"
+            ng-model="userProfile.user.last_name"
+            type="text"
+            name="lastName"
+          )
+      .row
+        .input-field.col.s12
+          input#phone(
+            placeholder="Телефон"
+            ng-model="userProfile.phone_number"
+            type="text"
+            name="phone"
+            required
+          )
+      .row.btn-group
+        button.btn.waves-effect.waves-light.right.pink.lighten-2(
+          ng-click="saveProfile(userProfile)"
+          ng-disabled="profileForm.$invalid"
+        ) Сохранить
+.row
+  .col.offset-s2
+    h5.pink-text.text-lighten-2 Смена пароля
+.container
+  .row
+    form.col.l8.m8.s10.offset-l2.offset-m2.offset-s1(
+      name="passwordForm"
+      novalidate
+    )
+      .row
+        .input-field.col.s12
+          input#old(
+            placeholder="Старый пароль"
+            ng-model="passwords.old_password"
+            type="password"
+            name="old"
+          )
+          label(for="old") Старый пароль
+      .row
+        .input-field.col.s12
+          input#new(
+            placeholder="Новый пароль"
+            ng-model="passwords.new_password"
+            type="password"
+            name="new"
+          )
+          label(for="new") Новый пароль
+      .row
+        .input-field.col.s12
+          input#new-confirm(
+            placeholder="Подтвердите пароль"
+            ng-model="passwords.confirm_password"
+            type="password"
+            name="new-confirm"
+            required
+          )
+          label(for="new-confirm") Подтвердите пароль
+      .row.btn-group
+        button.btn.waves-effect.waves-light.right.pink.lighten-2(
+          ng-click="savePassword(passwords)"
+          ng-disabled="passwordForm.$invalid"
+        ) Сохранить

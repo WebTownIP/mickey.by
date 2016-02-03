@@ -1,0 +1,5 @@
+client/node_modules
+client/assets/libs
+*.pyc
+static
+mickey/local_settings.py

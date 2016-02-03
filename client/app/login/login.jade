@@ -1,0 +1,35 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Авторизация
+.container
+  .row
+    form.col.l8.m8.s10.offset-l2.offset-m2.offset-s1(
+      name="loginForm"
+      novalidate
+    )
+      .row
+        .input-field.col.s12
+          input#email(
+            placeholder="Email"
+            ng-model="userLog.email"
+            type="text"
+            name="email"
+            required
+          )
+          label(for="email") Email
+      .row
+        .input-field.col.s12
+          input#password(
+            placeholder="Пароль"
+            ng-model="userLog.password"
+            type="password"
+            name="password"
+            required
+          )
+          label(for="password") Пароль
+      .row.btn-group
+        a.left(ui-sref="reset") Забыли пароль?
+        button.btn.waves-effect.waves-light.right.pink.lighten-2(
+          ng-click="login(userLog)"
+          ng-disabled="loginForm.$invalid"
+        ) Войти

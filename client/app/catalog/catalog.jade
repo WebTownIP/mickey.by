@@ -1,0 +1,34 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Каталог
+.row
+  .col.l3.m4.hide-on-small-only
+    form.z-depth-1.filter(name="filterForm")
+      h6.pink-text.text-lighten-2 Категория
+      p(ng-repeat="category in categories")
+        input(
+          type="checkbox"
+          id="{{category.id}}"
+          ng-click="categoryFilter(category)"
+        )
+        label(for="{{category.id}}") {{category.name}}
+      .divider
+      h6.pink-text.text-lighten-2 Цена
+      rzslider.cyan.lighten-1(
+        rz-slider-model="params.price__gte"
+        rz-slider-high="params.price__lte"
+        rz-slider-options="priceOptions"
+      )
+  .col.l9.m8.s12
+    .row(
+      infinite-scroll="load()"
+      infinite-scroll-disabled="totalCount <= params.offset || isLoadingError"
+    )
+      .col.l4.m6.s8.offset-s2.product.wow.flipInX(ng-repeat="product in products")
+        .z-depth-1.product
+          .center-align
+            img.responsive-img(ng-src="{{product.image}}")
+          a.name(ui-sref="catalog.details({id: product.id})") {{product.name}}
+          p.price
+            span(ng-class="{'discount': product.is_sale}") {{product.price}}
+            span(ng-if="product.is_sale") &nbsp;{{product.price - product.discount}}
