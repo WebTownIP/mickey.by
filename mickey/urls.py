@@ -44,5 +44,7 @@ urlpatterns = [
     url(r'^((?!api/)(?!media/).)*$', TemplateView.as_view(template_name='index.html')),
     url(r'^api/admin/', include(admin.site.urls)),
     url(r'^api/', include(api.urls)),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+  # url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+
+#] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

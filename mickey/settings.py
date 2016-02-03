@@ -60,7 +60,7 @@ ROOT_URLCONF = 'mickey.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/puffland/public_html/puffland/static/client'],
+        'DIRS': [os.path.join(BASE_DIR, 'static/client'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'mickey.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'puffland_db',
-        'USER': 'puffland_admin',
+        'NAME': 'mickey_db',
+        'USER': 'webtown_admin',
         'PASSWORD': '*bCdoIA9i].-',
         'HOST': 'localhost',
         'PORt': '3306',
@@ -112,8 +112,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
-MEDIA_ROOT = os.sep.join([os.path.dirname(os.path.dirname(__file__)), 'media'])
+#MEDIA_ROOT = os.sep.join([os.path.dirname(os.path.dirname(__file__)), 'media'])
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 #templates
