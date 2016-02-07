@@ -4,5 +4,6 @@
                      "ui.router",
                      "ui.validate",
                      "infinite-scroll",
-                     "rzModule"])
+                     "rzModule",
+                     "slick"])
 })()

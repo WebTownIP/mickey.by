@@ -72,7 +72,7 @@
       $rootScope.user = session.user
       session.getUser()
       $(".button-collapse").sideNav()
-      new WOW().init();
+      new WOW().init()
     })
 
 })()

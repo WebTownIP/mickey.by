@@ -1,5 +1,18 @@
-.row.grey.lighten-4
-  .col.l12(style="height:300px")
+slick.row.slick-slider.hide-on-small-only(
+  accessibility="false"
+  autoplay="true"
+  autoplaySpeed=5000
+  dots="false"
+  fade="true"
+  cssEase="linear"
+  lazy-load="ondemand"
+  mobileFirst="true"
+  arrows="false"
+)
+  .col.l12.slick-slide.slide1
+  .slick-slide.col.l12(style="background-image: url(/static/client/assets/images/slides/slide2.jpg)")
+  .slick-slide.col.l12(style="background-image: url(/static/client/assets/images/slides/slide3.jpg)")
+
 include ../../views/separator.jade
 .container.grey.lighten-4.z-depth-1(style="height: 100px; margin-top: 10px")
   .row.center-align

@@ -6,7 +6,10 @@ html
 
     .main
       min-height: 100%
-      padding-bottom: 300px
+      padding-bottom: 350px
+
+      @media (max-width: 992px)
+        padding-bottom: 583px
 
       nav
 
@@ -20,8 +23,17 @@ html
         margin-top: 15px
 
     footer
-      height: 290px
-      margin-top: -290px
+      height: 340px
+      margin-top: -340px
+
+      @media (max-width: 992px)
+        height: 573px
+        margin-top: -573px
+
+      .sign
+        height: 50px
+        padding-top: 3px
+        padding-bottom: 3px
 
 .separator
 

@@ -12,6 +12,8 @@ html
     link(href="static/client/assets/libs/fontawesome/css/font-awesome.min.css", rel="stylesheet")
     link(href="static/client/assets/libs/pickadate/lib/themes/default.css", rel="stylesheet")
     link(href="static/client/assets/libs/angularjs-slider/dist/rzslider.min.css", rel="stylesheet")
+    link(href="static/client/assets/libs/slick-carousel/slick/slick.css", rel="stylesheet")
+    link(href="static/client/assets/libs/slick-carousel/slick/slick-theme.css", rel="stylesheet")
     link(href="static/client/assets/libs/animate.css/animate.min.css", rel="stylesheet")
     link(href="static/client/assets/css/index.min.css", rel="stylesheet")
   | {% verbatim %}
@@ -49,8 +51,7 @@ html
               a Link 3
       .clearfix
       main(ui-view)
-    footer.grey.lighten-2
-      .row
+    include ./views/footer.jade
     
     include ./views/spinner.jade
 
@@ -84,6 +85,12 @@ html
     script(src="static/client/assets/libs/pickadate/lib/picker.date.js")
     script(src="static/client/assets/libs/pickadate/lib/picker.time.js")
     script(src="static/client/assets/libs/angularjs-slider/dist/rzslider.min.js")
+    script(src="static/client/assets/libs/slick-carousel/slick/slick.min.js")
+    script(src="static/client/assets/libs/angular-slick/dist/slick.min.js")
     script(src="static/client/assets/libs/underscore/underscore-min.js")
+    script(
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js"
+    )
     script(src="static/client/app/index.js")      
   | {% endverbatim %}

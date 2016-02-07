@@ -12,6 +12,7 @@
     "Materialize": "materialize#~0.97.1",
     "angular": "1.4.4",
     "angular-resource": "1.4.3",
+    "angular-slick": "~0.2.1",
     "angular-ui-router": "~0.2.15",
     "angular-ui-validate": "1.1.1",
     "angularjs-datetime-picker": "~0.1.20",
