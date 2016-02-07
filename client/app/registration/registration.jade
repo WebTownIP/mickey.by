@@ -12,20 +12,24 @@
           input#email(
             placeholder="Email"
             ng-model="userReg.email"
-            type="text"
+            type="email"
             name="email"
             required
           )
           label(for="email") Email
+          span.red-text(ng-if="registrationForm.email.$dirty && registrationForm.email.$invalid && registrationForm.email.$touched") Неверный формат
         .input-field.col.l6.s12
           input#phone(
             placeholder="Телефон"
             ng-model="userReg.phone_number"
             type="tel"
+            ng-pattern="/^\\+375(\\d{9})$/"
             name="phone"
             required
           )
           label(for="phone") Телефон
+          span.red-text(ng-if="registrationForm.phone.$dirty && registrationForm.phone.$invalid && registrationForm.phone.$touched") Неверный формат
+      .row
         .input-field.col.l6.s12
           input#password(
             placeholder="Пароль"
@@ -44,6 +48,7 @@
             required
           )
           label(for="confirmPassword") Повторите Пароль
+      .row
         .input-field.col.l6.s12
           input#firstName(
             placeholder="Имя"
@@ -55,7 +60,7 @@
         .input-field.col.l6.s12
           input#secondName(
             placeholder="Фамилия"
-            ng-model="userReg.second_name"
+            ng-model="userReg.last_name"
             type="text"
             name="secondName"
           )

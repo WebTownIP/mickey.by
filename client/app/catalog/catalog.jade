@@ -4,15 +4,19 @@
 .row
   .col.l3.m4.hide-on-small-only
     form.z-depth-1.filter(name="filterForm")
-      h6.pink-text.text-lighten-2 Категория
-      p(ng-repeat="category in categories")
-        input(
-          type="checkbox"
-          id="{{category.id}}"
-          ng-click="categoryFilter(category)"
-        )
-        label(for="{{category.id}}") {{category.name}}
-      .divider
+      .category(
+        ng-repeat="category in categories"
+        ng-if="category.subcategories.length"
+      )
+        h6.pink-text.text-lighten-2 {{category.name}}
+        p(ng-repeat="subcategory in category.subcategories")
+          input(
+            type="checkbox"
+            id="{{subcategory.id}}"
+            ng-click="categoryFilter(subcategory)"
+          )
+          label(for="{{subcategory.id}}") {{subcategory.name}}
+        .divider
       h6.pink-text.text-lighten-2 Цена
       rzslider.cyan.lighten-1(
         rz-slider-model="params.price__gte"

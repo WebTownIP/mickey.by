@@ -18,11 +18,16 @@ import json
 class CategoryResource(BaseModelResource):
 
     class Meta(BaseModelResource.Meta):
-        queryset = Category.objects.all()
+        queryset = Category.objects.filter(parent=None)
         resource_name = 'market/categories'
         filtering = {
-            'id': ['in', ],
+            'id': ['in', 'exact'],
         }
+
+    def dehydrate(self, bundle):
+        bundle.data['subcategories'] = list(
+            Category.objects.filter(parent=bundle.obj.id).values())
+        return bundle
 
 
 class PropertyResource(BaseModelResource):
@@ -33,18 +38,19 @@ class PropertyResource(BaseModelResource):
 
 
 class ProductResource(BaseModelResource):
-    category = fields.ToOneField(
-        CategoryResource, 'category', use_in='details', full=True)
+    categories = fields.ToManyField(
+        CategoryResource, 'categories', use_in='details', full=True)
     properties = fields.ToManyField(
         PropertyResource, 'properties', full=True, use_in='details')
     is_in_cart = fields.BooleanField(readonly=True, use_in='details')
 
     class Meta(BaseModelResource.Meta):
-        queryset = Product.objects.all()
+        queryset = Product.objects.all().prefetch_related(
+            'categories', 'properties').distinct()
         resource_name = 'market/products'
         filtering = {
             'is_popular': ['exact', ],
-            'category': ALL_WITH_RELATIONS,
+            'categories': ALL_WITH_RELATIONS,
             'price': ['lte', 'gte'],
         }
 
@@ -79,6 +85,7 @@ class OrderResource(HasOwnerResource):
         try:
             address = data.get('address')
             date = data.get('date')
+            time = data.get('time')
         except KeyError:
             return self.create_response(request, {}, HttpBadRequest)
         user = request.user
@@ -93,7 +100,8 @@ class OrderResource(HasOwnerResource):
                     'name': '%s %s' % (user.first_name, user.last_name),
                     'phone': profile.phone_number,
                     'address': address,
-                    'date': date
+                    'date': date,
+                    'time': time
                 }
             }
             for order in orders_in_cart:
@@ -105,10 +113,10 @@ class OrderResource(HasOwnerResource):
                 }
                 context['products'].append(product)
                 context['total_price'] += product['price']
-            orders_in_cart.update(is_in_cart=False)
             subject = '[Mickey] Новый Заказ'
             EmailService.send_email('order.email.html', subject,
                 context, [settings.SEND_TO, ])
+            orders_in_cart.update(is_in_cart=False)
             return self.create_response(request, {})
         else:
             return self.create_response(request, {}, HttpUnauthorized)

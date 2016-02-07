@@ -35,8 +35,8 @@ class Property(BaseModel):
 
 class Product(HasTimeHistory):
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category)
-    properties = models.ManyToManyField(Property)
+    categories = models.ManyToManyField(Category)
+    properties = models.ManyToManyField(Property, blank=True)
     price = models.IntegerField()
     description = models.TextField(blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='products')

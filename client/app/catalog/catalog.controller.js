@@ -18,7 +18,7 @@
       $scope.params = {
         offset: 0,
         limit: 25,
-        category__id__in: [],
+        categories__id__in: [],
         price__gte: $scope.priceOptions.floor,
         price__lte: $scope.priceOptions.ceil
       }
@@ -52,11 +52,11 @@
       }
 
     function categoryFilter(category){
-      var index = _.indexOf($scope.params.category__id__in, category.id)
+      var index = _.indexOf($scope.params.categories__id__in, category.id)
       if (index != -1){
-        $scope.params.category__id__in.splice(index, 1)
+        $scope.params.categories__id__in.splice(index, 1)
       } else{
-        $scope.params.category__id__in.push(category.id)
+        $scope.params.categories__id__in.push(category.id)
       }
       avoid()
     }

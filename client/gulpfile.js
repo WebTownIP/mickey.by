@@ -46,7 +46,7 @@ gulp.task("compile-sass", function(){
     .pipe(watch(styles))
     .pipe(sass())
     .pipe(concat("index.css"))
-    .pipe(gulp.dest("./build/assets/css"))
+    .pipe(gulp.dest("../static/client/assets/css"))
     .pipe(rename("index.min.css"))
     .pipe(csso())
     .pipe(gulp.dest("../static/client/assets/css"))

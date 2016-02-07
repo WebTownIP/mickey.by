@@ -22,6 +22,9 @@
             self.user.isLogged = true
             self.user.info = response.data.user
           })
+          .catch(function(){
+            self.user.isLogged = false
+          })
       }
 
       function login(user){
@@ -47,6 +50,10 @@
       }
 
       function registrate(user){
+        if (user.password != user.confirm_password){
+          AlertService.showMessage("Пароли должны совпадать.")
+          return
+        }
         var uri = API_AUTH.BASE + API_AUTH.REGISTRATION
         return $http.post(uri, user)
           .then(function(){

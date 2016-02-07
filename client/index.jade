@@ -30,7 +30,7 @@ html
       nav.cyan.lighten-1
         .nav-wrapper
           a.button-collapse(href="#", data-activates="mobile-topmenu", style="margin-left: 10px")
-            i.fa.fa-bars.grey-text.text-darken-3
+            i.fa.fa-bars.text-darken-3
           ul.left.hide-on-med-and-down
             li
               a(ui-sref="catalog.list") Каталог
@@ -38,9 +38,9 @@ html
               a Размеры шаров
             li
               a Доставка
-          ul.side-nav#mobile-topmenu
+          ul.cyan.lighten-1.side-nav#mobile-topmenu
             li
-              a.grey-text(ui-sref="catalog.list") Каталог
+              a(ui-sref="catalog.list") Каталог
             li
               a Link 1
             li
@@ -65,12 +65,12 @@ html
         i.fa.fa-sign-out
 
 
-    .fixed-action-btn.registration(ng-if="!user.isLogged", ng-cloak)
-      a.btn-floating.btn-large.green.lighten-1(ui-sref="registration")
-        i.fa.fa-user-plus
     .fixed-action-btn.sign-in(ng-if="!user.isLogged", ng-cloak)
       a.btn-floating.btn-large.cyan.lighten-1(ui-sref="login")
         i.fa.fa-sign-in
+    .fixed-action-btn.registration(ng-if="!user.isLogged", ng-cloak)
+      a.btn-floating.btn-large.green.lighten-1(ui-sref="registration")
+        i.fa.fa-user-plus
 
     script(src="static/client/assets/libs/jquery/dist/jquery.min.js")
     script(src="static/client/assets/libs/masonry/dist/masonry.pkgd.min.js")

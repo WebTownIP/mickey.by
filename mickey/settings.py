@@ -124,14 +124,14 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'localhost'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'nikita.sedyx.94@gmail.com'
-EMAIL_HOST_PASSWORD = '3588701qwer'
+EMAIL_HOST_USER = 'info@puffland.by'
+EMAIL_HOST_PASSWORD = '9D0s0X3z'
 EMAIL_USE_SSL = True
 
-SEND_TO = 'nikita.sedyx.94@mail.ru'
-SEND_FROM = 'nikita.sedyx.94@gmail.com'
+SEND_TO = 'info@puffland.by'
+SEND_FROM = 'info@puffland.by'
 
 try:
     from local_settings import *

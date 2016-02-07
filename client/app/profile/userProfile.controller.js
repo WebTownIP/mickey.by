@@ -31,6 +31,10 @@
       }
 
       function savePassword(passwords){
+        if (passwords.new_password != passwords.confirm_password){
+          AlertService.showMessage("Подтвердите пароль.")
+          return
+        }
         var uri = "/api/v1/user_profiles/change_password/"
         $http.post(uri, passwords)
           .then(function(response){

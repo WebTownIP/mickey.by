@@ -32,9 +32,11 @@
             placeholder="Телефон"
             ng-model="userProfile.phone_number"
             type="text"
+            ng-pattern="/^\\+375(\\d{9})$/"
             name="phone"
             required
           )
+          span.red-text(ng-if="profileForm.phone.$dirty && profileForm.phone.$invalid && profileForm.phone.$touched") Неверный формат
       .row.btn-group
         button.btn.waves-effect.waves-light.right.pink.lighten-2(
           ng-click="saveProfile(userProfile)"

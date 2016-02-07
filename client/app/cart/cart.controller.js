@@ -12,17 +12,6 @@
         $state.go("login")
       }
 
-      $('.datepicker').pickadate({
-        min: Date.now()
-      });
-      $('.timepicker').pickatime({
-        closeOnSelect: true,
-        closeOnClear: true,
-        onSet: function() {
-            setTimeout(this.close, 0)
-        }
-      })
-
       $scope.forms = {}
       $scope.orderInfo = {}
       loadOrdersInCart()
@@ -76,7 +65,7 @@
 
       function updateOrderCount(order){
         var data = {count: order.count}
-        OrderResource.updateOrder({id: order.id}, data).$promise
+        OrderResource.updateOrder({id: order.id}, data)
       }
 
       function getTotalPrice(){

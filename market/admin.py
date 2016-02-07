@@ -16,7 +16,7 @@ admin.site.register(Property, PropertyAdmin)
 
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    list_display = ['name', 'category', 'price']
+    list_display = ['name', 'price']
 admin.site.register(Product, ProductAdmin)
 
 

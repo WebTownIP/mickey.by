@@ -89,11 +89,12 @@ class LoginResource(Resource):
         except KeyError:
             return self.create_response(request, {}, HttpBadRequest)
         user = auth.authenticate(username=email, password=password)
+
         if user is not None:
             if user.is_active:
                 auth.login(request, user)
                 user = {
-                    'id': user.id,
+                    'id': user.userprofile.id,
                     'username': user.username
                 }
                 return self.create_response(request, {'user': user})
@@ -110,9 +111,10 @@ class LoginResource(Resource):
     def session(self, request, **kwargs):
         self.method_check(request, allowed=['get'])
         user = request.user
+
         if user.is_authenticated():
             user = {
-              'id': user.id,
+              'id': user.userprofile.id,
               'username': user.username
             }
             return self.create_response(request, {'user': user})
