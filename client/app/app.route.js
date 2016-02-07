@@ -22,6 +22,12 @@
           controller: "CartController"
         })
 
+        .state("ballSizes", {
+          url: "/ball_sizes",
+          templateUrl: "/static/client/assets/views/main/ball_sizes.html",
+          controller: "BallSizesController"
+        })
+
       /*auth*/
       $stateProvider
         .state("login", {
