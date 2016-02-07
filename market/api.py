@@ -115,7 +115,7 @@ class OrderResource(HasOwnerResource):
                 context['total_price'] += product['price']
             subject = '[Mickey] Новый Заказ'
             EmailService.send_email('order.email.html', subject,
-                context, [settings.SEND_TO, ])
+                context, settings.SEND_TO)
             orders_in_cart.update(is_in_cart=False)
             return self.create_response(request, {})
         else:

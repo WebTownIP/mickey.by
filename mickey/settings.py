@@ -130,7 +130,7 @@ EMAIL_HOST_USER = 'info@puffland.by'
 EMAIL_HOST_PASSWORD = '9D0s0X3z'
 EMAIL_USE_SSL = True
 
-SEND_TO = 'info@puffland.by'
+SEND_TO = ['nikita.sedyx.94@mail.ru', ]
 SEND_FROM = 'info@puffland.by'
 
 try:
