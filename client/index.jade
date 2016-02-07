@@ -21,13 +21,25 @@ html
     .main
       include ./views/separator.jade
       header
-        .row
-          .col.l2.m2.s4
+        .row.valign-wrapper
+          .col.l2.m3.s4.valign
             a.logo(ui-sref="main")
               img.responsive-img(
                 src="http://s1.iconbird.com/ico/2013/12/535/w512h5121387208028mickeymouseicon.png"
               alt="Логотип"
               )
+          .contacts.col.l4.m4.s8.valign.light-green-text.text-darken-4
+            i.fa.fa-mobile
+            ul
+              li +37526985456
+              li +35785566456
+          .contacts.col.l4.m4.valign.hide-on-med-and-down
+            a.light-green-text.text-darken-4(href="mailto: info@puffland.by") info@puffland.by
+          .col.l2.m4.valign.hide-on-small-only
+            a.cyan-text.text-lighten-1(href="")
+              i.fa.fa-vk
+            a.orange-text(href="")
+              i.fa.fa-odnoklassniki
       div.divider
       nav.cyan.lighten-1
         .nav-wrapper
@@ -45,10 +57,6 @@ html
               a(ui-sref="catalog.list") Каталог
             li
               a(ui-sref="ballSizes") Размеры шаров
-            li
-              a Link 2
-            li
-              a Link 3
       .clearfix
       main(ui-view)
     include ./views/footer.jade

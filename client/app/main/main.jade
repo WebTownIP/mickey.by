@@ -36,22 +36,9 @@ include ../../views/separator.jade
           span(ng-if="popularProd.is_sale") &nbsp;{{popularProd.price - popularProd.discount}}
 
 .container
-  .row.center-align.light-green-text.text-darken-4(style="margin-top: 10px")
-    .col.l4.m6.s12.offset-m3.wow.slideInLeft
-      .green.lighten-1.z-depth-1(style="margin-top: 10px; padding: 10px")
-        img.avatar.circle(src="https://lh3.googleusercontent.com/-XUR_k12ccow/U_Se7mTYG2I/AAAAAAAAADY/2EpnRg-z5s8/w960-h960/1757649-me_avatar_big.png", style="height: 100px; width: 100px")
-        p.
-          asdasdas das das dasd asd as das das das das das das das das das das das dasdasdasdasd asd asd asdasdasdasd dasdasdasdasdas sadsaddas
-        p.center-align Анна
-    .col.l4.m6.s12.offset-m3.wow.slideInUp
-      .green.lighten-1.z-depth-1(style="margin-top: 10px; padding: 10px")
-        img.avatar.circle(src="https://lh3.googleusercontent.com/-XUR_k12ccow/U_Se7mTYG2I/AAAAAAAAADY/2EpnRg-z5s8/w960-h960/1757649-me_avatar_big.png", style="height: 100px; width: 100px")
-        p.
-          asdasdas das das dasd asd as das das das das das das das das das das das dasdasdasdasd asd asd asdasdasdasd dasdasdasdasdas sadsaddas
-        p.center-align Анна
-    .col.l4.m6.s12.offset-m3.wow.slideInRight
-      .green.lighten-1.z-depth-1(style="margin-top: 10px; padding: 10px")
-        img.avatar.circle(src="https://lh3.googleusercontent.com/-XUR_k12ccow/U_Se7mTYG2I/AAAAAAAAADY/2EpnRg-z5s8/w960-h960/1757649-me_avatar_big.png", style="height: 100px; width: 100px")
-        p.
-          asdasdas das das dasd asd as das das das das das das das das das das das dasdasdasdasd asd asd asdasdasdasd dasdasdasdasdas sadsaddas
-        p.center-align Анна
+  .feedback-container.row.center-align.light-green-text.text-darken-4
+    .col.l4.m6.s12.offset-m3.wow.slideInLeft(ng-repeat="feedback in feedbacks")
+      .feedback.green.lighten-1.z-depth-1
+        img.avatar.circle(ng-src="{{feedback.img}}")
+        p {{feedback.text}}
+        p {{feedback.name}}
