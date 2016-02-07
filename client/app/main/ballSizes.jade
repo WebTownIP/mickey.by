@@ -3,7 +3,7 @@
     h3.pink-text.text-lighten-2 Размеры шаров
 .container
   .row
-    .col.l4.m6.s10.offset-s1(ng-repeat="size in sizes")
+    .col.l4.m6.s10.offset-s1.wow.zoomIn(ng-repeat="size in sizes")
       .z-depth-1.ball-size
         img.responsive-img(
           src="{{size.img}}"
