@@ -1,0 +1,13 @@
+.row
+  .col.offset-s1
+    h3.pink-text.text-lighten-2 Размеры шаров
+.container
+  .row
+    .col.l4.m6.s10.offset-s1(ng-repeat="size in sizes")
+      .z-depth-1.ball-size
+        img.responsive-img(
+          src="{{size.img}}"
+          title="{{size.title}}"
+        )
+        .title.cyan.lighten-1.white-text
+          span {{size.title}}

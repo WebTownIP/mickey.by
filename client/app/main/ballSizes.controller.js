@@ -8,7 +8,7 @@
 
     function BallSizesController($scope){
       $scope.sizes = [
-        {title: "1", img: "/static/client/assets/images/sizes/1.jpg"},
+        {title: "1 asd aasdasasd asdsd asd asd asd as dsadsa", img: "/static/client/assets/images/sizes/1.jpg"},
         {title: "2", img: "/static/client/assets/images/sizes/2.jpg"},
         {title: "3", img: "/static/client/assets/images/sizes/3.jpg"},
         {title: "4", img: "/static/client/assets/images/sizes/4.jpg"},

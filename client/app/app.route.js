@@ -24,7 +24,7 @@
 
         .state("ballSizes", {
           url: "/ball_sizes",
-          templateUrl: "/static/client/assets/views/main/ball_sizes.html",
+          templateUrl: "/static/client/assets/views/main/ballSizes.html",
           controller: "BallSizesController"
         })
 
