@@ -28,7 +28,7 @@
       infinite-scroll="load()"
       infinite-scroll-disabled="totalCount <= params.offset || isLoadingError"
     )
-      .col.l4.m6.s8.offset-s2.product.wow.slideInDown(ng-repeat="product in products")
+      .col.l4.m6.s8.offset-s2.product(ng-repeat="product in products")
         .z-depth-1.product
           .center-align
             img.responsive-img.cursor-pointer(
