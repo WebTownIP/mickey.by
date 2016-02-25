@@ -7,11 +7,6 @@
     MainController.$inject = ["$scope", "ProductResource"]
 
     function MainController($scope, ProductResource){
-      ProductResource.getPopularProducts().$promise
-        .then(function(response){
-          $scope.popularProducts = response.objects
-        })
-
       var feedbacks = [
         {
           img: "/static/client/assets/images/avatars/man.png",
@@ -49,14 +44,21 @@
           name: "Вероника"
         }
       ]
-      var uniqueIndexes = []
-      $scope.feedbacks = []
-      while ($scope.feedbacks.length < 3){
-        var index = Math.floor(Math.random() * feedbacks.length)
-        if (_.indexOf(uniqueIndexes, index) == -1){
-          uniqueIndexes.push(index)
-          $scope.feedbacks.push(feedbacks[index])
-        }
-      }
+
+      ProductResource.getPopularProducts().$promise
+        .then(function(response){
+          $scope.popularProducts = response.objects
+        })
+        .finally(function(){
+          var uniqueIndexes = []
+          $scope.feedbacks = []
+          while ($scope.feedbacks.length < 3){
+            var index = Math.floor(Math.random() * feedbacks.length)
+            if (_.indexOf(uniqueIndexes, index) == -1){
+              uniqueIndexes.push(index)
+              $scope.feedbacks.push(feedbacks[index])
+            }
+          }
+        })
     }
 })()

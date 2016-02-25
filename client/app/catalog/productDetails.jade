@@ -3,7 +3,7 @@
     h4.pink-text.text-lighten-2 {{product.name}}
   .col.l4.m6.s10.offset-s1.offset-l1.img-container
     .z-depth-1.image.center-align
-      img.responsive-img(ng-src="{{product.image}}")
+      img.responsive-img(ng-src="{{product.image}}", alt="{{product.name}}")
   .col.l6.m6.s10.offset-s1
     .row.hide-on-small-only
       .col.l12.m12
@@ -34,10 +34,12 @@
       .col.s12.right-align
         button.btn.waves-effect.waves-light.pink.lighten-2(
           ui-sref="catalog.list"
+          title="Назад"
         )
           i.fa.fa-reply
         button.btn.waves-effect.waves-light.pink.lighten-2(
           ng-click="makeOrder()"
           ng-disabled="product.is_in_cart || !user.isLogged"
+          title="Добавить в корзину"
         )
           i.fa.fa-plus

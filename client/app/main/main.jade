@@ -14,11 +14,23 @@ slick.row.slick-slider.hide-on-small-only(
   .slick-slide.col.l12(style="background-image: url(/static/client/assets/images/slides/slide3.jpg)")
 
 include ../../views/separator.jade
-.container.grey.lighten-4.z-depth-1(style="height: 100px; margin-top: 10px")
+.about-container.container.grey.lighten-4.z-depth-1
   .row.center-align
-    .col.l4.m4.s12 Доставка
-    .col.l4.m4.s12 Низкие цены
-    .col.l4.m4.s12 Гарантия
+    .col.l4.m4.s12.cyan-text.center-align
+      h5 Доставка
+      p
+        i.fa.fa-truck.fa-3x
+      p При заказе более 200000 руб. доставка БЕСПЛАТНАЯ
+    .col.l4.m4.s12.green-text.center-align
+      h5 Низкие цены
+      p
+        i.fa.fa-money.fa-3x
+      p Воздушные шарики в Гомеле по доступным ценам
+    .col.l4.m4.s12.pink-text.text-lighten-2.center-align
+      h5 Гаратния
+      p
+        i.fa.fa-check-circle.fa-3x
+      p Дополнительная обработка латексных шариков средством Hi-float
 .container
   .row
     h3.pink-text.text-lighten-2.center-align Популярные товары
@@ -29,11 +41,20 @@ include ../../views/separator.jade
     )
       .z-depth-1.product
         .center-align
-          img.responsive-img(ng-src="{{popularProd.image}}")
-        a.name(ui-sref="catalog.details({id: popularProd.id})") {{popularProd.name}}
-        p.price
-          span(ng-class="{'discount': popularProd.is_sale}") {{popularProd.price}}
-          span(ng-if="popularProd.is_sale") &nbsp;{{popularProd.price - popularProd.discount}}
+          img.responsive-img.cursor-pointer(
+            ng-src="{{popularProd.image}}"
+            alt="{{popularProd.name}}"
+            ui-sref="catalog.details({id: popularProd.id})"
+          )
+        a.name(
+          ui-sref="catalog.details({id: popularProd.id})"
+          title="{{popularProd.name}}"
+        ) {{popularProd.name}}
+        p.price.left
+          span {{popularProd.price}}
+        p.price.right(ng-if="popularProd.is_sale")
+          i.fa.fa-percent.fa-lg(title="Скидка {{popularProd.discount}} руб.")
+        .clearfix
 
 .container
   .feedback-container.row.center-align.light-green-text.text-darken-4

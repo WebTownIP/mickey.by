@@ -12,7 +12,7 @@
           input#email(
             placeholder="Email"
             ng-model="userLog.email"
-            type="text"
+            type="email"
             name="email"
             required
           )
@@ -32,4 +32,5 @@
         button.btn.waves-effect.waves-light.right.pink.lighten-2(
           ng-click="login(userLog)"
           ng-disabled="loginForm.$invalid"
+          title="Войти"
         ) Войти

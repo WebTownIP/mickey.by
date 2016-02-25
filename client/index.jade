@@ -22,36 +22,49 @@ html
       include ./views/separator.jade
       header
         .row.valign-wrapper
-          .col.l2.m3.s4.valign
+          .col.l2.m3.s3.valign
             a.logo(ui-sref="main")
-              img.responsive-img(
-                src="http://s1.iconbird.com/ico/2013/12/535/w512h5121387208028mickeymouseicon.png"
-              alt="Логотип"
+              img.responsive-img.hide-on-med-and-down(
+                src="/static/client/assets/images/logo_l.png"
+                alt="Логотип Микки"
               )
-          .contacts.col.l4.m4.s8.valign.light-green-text.text-darken-4
+              img.responsive-img.hide-on-large-only(
+                src="/static/client/assets/images/logo_m.png"
+                alt="Логотип Микки"
+              )
+          .contacts.col.l5.m5.s9.valign.center-align.light-green-text.text-darken-4
             i.fa.fa-mobile
             ul
-              li +37526985456
-              li +35785566456
-          .contacts.col.l4.m4.valign.hide-on-med-and-down
-            a.light-green-text.text-darken-4(href="mailto: info@puffland.by") info@puffland.by
-          .col.l2.m4.valign.hide-on-small-only
-            a.cyan-text.text-lighten-1(href="")
+              li +375 (29) 336 14 12
+              li +375 (29) 137 21 32
+          .contacts.col.l3.valign.hide-on-med-and-down
+            a.light-green-text.text-darken-4(href="mailto: info@puffland.by") info@mickey.by
+          .col.l2.m3.valign.hide-on-small-only
+            a.cyan-text.text-lighten-1(
+              href="https://vk.com/mickey_by"
+              target="_blank"
+              title="Вконтакте"
+            )
               i.fa.fa-vk
-            a.orange-text(href="")
+            a.orange-text(
+              href="http://ok.ru/profile/564116239778"
+              target="_blank"
+              title="Одноклассники"
+            )
               i.fa.fa-odnoklassniki
       div.divider
       nav.cyan.lighten-1
         .nav-wrapper
-          a.button-collapse(href="#", data-activates="mobile-topmenu", style="margin-left: 10px")
+          a.button-collapse(
+            href="#"
+            data-activates="mobile-topmenu"
+          )
             i.fa.fa-bars.text-darken-3
           ul.left.hide-on-med-and-down
             li
               a(ui-sref="catalog.list") Каталог
             li
               a(ui-sref="ballSizes") Размеры шаров
-            li
-              a Доставка
           ul.cyan.lighten-1.side-nav#mobile-topmenu
             li
               a(ui-sref="catalog.list") Каталог
@@ -64,21 +77,36 @@ html
     include ./views/spinner.jade
 
     .fixed-action-btn.cart(ng-if="user.isLogged",ng-cloak)
-      a.btn-floating.btn-large.pink.lighten-1(ui-sref="cart")
+      a.btn-floating.btn-large.pink.lighten-1(
+        ui-sref="cart"
+        title="Корзина"
+      )
         i.fa.fa-shopping-basket
     .fixed-action-btn.profile(ng-if="user.isLogged", ng-cloak)
-      a.btn-floating.btn-large.green.lighten-1(ui-sref="profile({id: user.info.id})")
+      a.btn-floating.btn-large.green.lighten-1(
+        ui-sref="profile({id: user.info.id})"
+        title="Профиль"
+      )
         i.fa.fa-user
     .fixed-action-btn.sign-out(ng-if="user.isLogged", ng-cloak)
-      a.btn-floating.btn-large.cyan.lighten-1(ng-click="logout()")
+      a.btn-floating.btn-large.cyan.lighten-1(
+        ng-click="logout()"
+        title="Выйти"
+      )
         i.fa.fa-sign-out
 
 
     .fixed-action-btn.sign-in(ng-if="!user.isLogged", ng-cloak)
-      a.btn-floating.btn-large.cyan.lighten-1(ui-sref="login")
+      a.btn-floating.btn-large.cyan.lighten-1(
+        ui-sref="login"
+        title="Войти"
+      )
         i.fa.fa-sign-in
     .fixed-action-btn.registration(ng-if="!user.isLogged", ng-cloak)
-      a.btn-floating.btn-large.green.lighten-1(ui-sref="registration")
+      a.btn-floating.btn-large.green.lighten-1(
+        ui-sref="registration"
+        title="Регистрация"
+      )
         i.fa.fa-user-plus
 
     script(src="static/client/assets/libs/jquery/dist/jquery.min.js")

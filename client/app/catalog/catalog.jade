@@ -28,11 +28,20 @@
       infinite-scroll="load()"
       infinite-scroll-disabled="totalCount <= params.offset || isLoadingError"
     )
-      .col.l4.m6.s8.offset-s2.product.wow.flipInX(ng-repeat="product in products")
+      .col.l4.m6.s8.offset-s2.product.wow.slideInDown(ng-repeat="product in products")
         .z-depth-1.product
           .center-align
-            img.responsive-img(ng-src="{{product.image}}")
-          a.name(ui-sref="catalog.details({id: product.id})") {{product.name}}
-          p.price
-            span(ng-class="{'discount': product.is_sale}") {{product.price}}
-            span(ng-if="product.is_sale") &nbsp;{{product.price - product.discount}}
+            img.responsive-img.cursor-pointer(
+              ng-src="{{product.image}}"
+              alt="{{product.name}}"
+              ui-sref="catalog.details({id: product.id})"
+            )
+          a.name(
+            ui-sref="catalog.details({id: product.id})"
+            title="{{product.name}}"
+          ) {{product.name}}
+          p.price.left
+            span {{product.price}}
+          p.price.right(ng-if="product.is_sale")
+            i.fa.fa-percent.fa-lg(title="Скидка {{product.discount}} руб.")
+          .clearfix
