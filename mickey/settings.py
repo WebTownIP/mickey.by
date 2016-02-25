@@ -126,12 +126,9 @@ TEMPLATE_LOADERS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'info@puffland.by'
-EMAIL_HOST_PASSWORD = '9D0s0X3z'
 EMAIL_USE_SSL = True
 
-SEND_TO = ['nikita.sedyx.94@mail.ru', ]
-SEND_FROM = 'info@puffland.by'
+SEND_TO = ['nikita.sedyx.94@mail.ru', 'Kinmarloy@yandex.ru', ]
 
 try:
     from local_settings import *
